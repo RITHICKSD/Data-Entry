@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Cpath d='M18.5 5L10 18h7l-3.5 9L24 14h-7z' fill='white'/%3E%3C/svg%3E">
+  <title>About Us | TaskFlow VA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="app-header" id="app-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo"><i class="fa-solid fa-headset"></i><span>TaskFlow <span style="color: var(--primary);">VA</span></span></a>
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item dropdown">
+            <a href="javascript:void(0)" class="nav-link"><span>Home</span><i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></a>
+            <div class="dropdown-menu">
+              <a href="index.html" class="dropdown-item">Home 1</a>
+              <a href="home2.html" class="dropdown-item">Home 2</a>
+            </div>
+          </li>
+          <li class="nav-item"><a href="about.html" class="nav-link active">About Us</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+          <li class="nav-item"><a href="faq.html" class="nav-link">FAQ & Resources</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+          <li class="nav-item dropdown">
+            <a href="javascript:void(0)" class="nav-link"><span>Dashboard</span><i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></a>
+            <div class="dropdown-menu">
+              <a href="user-dashboard.html" class="dropdown-item">User Dashboard</a>
+              <a href="admin-dashboard.html" class="dropdown-item">Admin Dashboard</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="control-btn desktop-only-control" onclick="toggleTheme()"><i class="fa-solid fa-moon theme-icon-elem"></i></button>
+        <button class="control-btn desktop-only-control" onclick="toggleRTL()"><span class="rtl-text-elem" style="font-weight: 700; font-size: 0.8rem;">LTR</span></button>
+        <a href="login.html" class="btn btn-primary btn-sm desktop-only-control"><i class="fa-solid fa-right-to-bracket"></i><span>Login</span></a>
+        <button class="control-btn mobile-toggle" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="app-content">
+    <div id="view-about" class="page-view active">
+      <section class="hero-section hero-section-bg hero-bg-about">
+        <div class="container hero-content-center">
+          <span class="badge">Our Story & Mission</span>
+          <h1 style="font-size: 3rem; margin: 1rem 0;">Empowering Global Teams Through Elite Virtual Assistance</h1>
+          <p style="font-size: 1.15rem;">Founded in 2020, TaskFlow VA bridges the gap between busy executives and top 1% vetted administrative talent worldwide.</p>
+        </div>
+      </section>
+
+      <section class="section-padding">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="badge">Our Principles</span>
+            <h2>What Drives Our Excellence</h2>
+          </div>
+          <div class="grid-3">
+            <div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-bullseye"></i></div><h3>Uncompromising Accuracy</h3><p>Every data entry batch undergoes double-pass verification to guarantee 99.9% accuracy.</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-lock"></i></div><h3>Bank-Grade Confidentiality</h3><p>Encrypted password management, non-disclosure agreements, and SOC-2 data compliance.</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-handshake"></i></div><h3>Proactive Ownership</h3><p>Our VAs don't just follow tasks—they actively identify workflow improvements.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-padding" style="background: var(--bg-secondary);">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="badge">Leadership</span>
+            <h2>Meet the Management Team</h2>
+          </div>
+          <div class="grid-3">
+            <div class="feature-card text-center">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;" alt="Executive">
+              <h3>David Harrison</h3>
+              <p style="color: var(--primary); font-weight: 600; font-size: 0.9rem;">Chief Executive Officer</p>
+              <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">Ex-McKinsey consultant with 15+ years experience scaling remote operational infrastructure.</p>
+            </div>
+            <div class="feature-card text-center">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;" alt="Executive">
+              <h3>Samantha Sterling</h3>
+              <p style="color: var(--primary); font-weight: 600; font-size: 0.9rem;">VP of Operations & Quality</p>
+              <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">Oversees assistant vetting, training programs, and client SLA compliance management.</p>
+            </div>
+            <div class="feature-card text-center">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;" alt="Executive">
+              <h3>Michael Chang</h3>
+              <p style="color: var(--primary); font-weight: 600; font-size: 0.9rem;">Head of Data Security</p>
+              <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">Enforces HIPAA, GDPR, and enterprise data encryption standards across all VA endpoints.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-padding text-center">
+        <div class="container">
+          <h2>Partner with a Vetted Virtual Assistant Today</h2>
+          <p style="color: var(--text-secondary); margin: 1rem 0 2rem 0;">Join our growing family of satisfied business leaders.</p>
+          <a href="pricing.html" class="btn btn-primary btn-lg">Choose Your Plan</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- COMMON FOOTER -->
+  <footer class="app-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem; display: inline-flex;">
+            <i class="fa-solid fa-headset"></i>
+            <span>TaskFlow <span style="color: var(--primary);">VA</span></span>
+          </a>
+          <p>Enterprise-grade Data Entry, Executive Support, and Virtual Assistant Services. Vetted talent ready for high-growth teams.</p>
+          <div class="social-links">
+            <a href="javascript:void(0)" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="javascript:void(0)" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+            <a href="javascript:void(0)" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="javascript:void(0)" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Data Entry & Cleaning</a></li>
+            <li><a href="services.html">Executive Scheduling</a></li>
+            <li><a href="services.html">Admin Operations</a></li>
+            <li><a href="services.html">E-Commerce Management</a></li>
+            <li><a href="services.html">B2B Lead Generation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home 1 (Enterprise)</a></li>
+            <li><a href="home2.html">Home 2 (Startup)</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="faq.html">FAQ & Resources</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Client Portal</h4>
+          <ul class="footer-links">
+            <li><a href="user-dashboard.html">Client Dashboard</a></li>
+            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+            <li><a href="login.html">Login Portal</a></li>
+            <li><a href="contact.html">24/7 Escalation</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 TaskFlow VA Technologies Inc. All rights reserved.</p>
+        <p>Supports LTR & RTL Internationalization</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

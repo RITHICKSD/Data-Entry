@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Cpath d='M18.5 5L10 18h7l-3.5 9L24 14h-7z' fill='white'/%3E%3C/svg%3E">
+  <title>How It Works | TaskFlow VA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="app-header" id="app-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo"><i class="fa-solid fa-headset"></i><span>TaskFlow <span style="color: var(--primary);">VA</span></span></a>
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item dropdown">
+            <a href="javascript:void(0)" class="nav-link"><span>Home</span><i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></a>
+            <div class="dropdown-menu">
+              <a href="index.html" class="dropdown-item">Home 1</a>
+              <a href="home2.html" class="dropdown-item">Home 2</a>
+            </div>
+          </li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+          <li class="nav-item"><a href="faq.html" class="nav-link">FAQ & Resources</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+          <li class="nav-item dropdown">
+            <a href="javascript:void(0)" class="nav-link"><span>Dashboard</span><i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></a>
+            <div class="dropdown-menu">
+              <a href="user-dashboard.html" class="dropdown-item">User Dashboard</a>
+              <a href="admin-dashboard.html" class="dropdown-item">Admin Dashboard</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="control-btn desktop-only-control" onclick="toggleTheme()"><i class="fa-solid fa-moon theme-icon-elem"></i></button>
+        <button class="control-btn desktop-only-control" onclick="toggleRTL()"><span class="rtl-text-elem" style="font-weight: 700; font-size: 0.8rem;">LTR</span></button>
+        <a href="login.html" class="btn btn-primary btn-sm desktop-only-control"><i class="fa-solid fa-right-to-bracket"></i><span>Login</span></a>
+        <button class="control-btn mobile-toggle" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="app-content">
+    <div id="view-how-it-works" class="page-view active">
+      <section class="hero-section hero-section-bg hero-bg-how-it-works">
+        <div class="container hero-content-center">
+          <span class="badge">Seamless Onboarding</span>
+          <h1 style="font-size: 3rem; margin: 1rem 0;">How TaskFlow VA Works</h1>
+          <p style="font-size: 1.15rem;">We make delegating business admin and data entry tasks completely effortless.</p>
+        </div>
+      </section>
+
+      <section class="section-padding">
+        <div class="container">
+          <div class="grid-3">
+            <div class="feature-card">
+              <span class="badge" style="margin-bottom: 1rem;">Step 1</span>
+              <h3>1. Select Plan & Match</h3>
+              <p style="color: var(--text-secondary);">Choose your subscription plan and fill out our brief 3-minute workflow questionnaire.</p>
+            </div>
+            <div class="feature-card">
+              <span class="badge" style="margin-bottom: 1rem;">Step 2</span>
+              <h3>2. Kickoff Call & SOP setup</h3>
+              <p style="color: var(--text-secondary);">Meet your assigned dedicated Virtual Assistant and Account Manager to review software access & guidelines.</p>
+            </div>
+            <div class="feature-card">
+              <span class="badge" style="margin-bottom: 1rem;">Step 3</span>
+              <h3>3. Delegate & Monitor</h3>
+              <p style="color: var(--text-secondary);">Submit tasks via dashboard portal, Slack, or email. Track completion status in real-time.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-padding text-center">
+        <div class="container">
+          <h2>Experience Effortless Task Delegation</h2>
+          <p style="color: var(--text-secondary); margin: 1rem 0 2rem 0;">Get matched with your dedicated VA in under 24 hours.</p>
+          <a href="pricing.html" class="btn btn-primary btn-lg">Get Started Now</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- COMMON FOOTER -->
+  <footer class="app-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem; display: inline-flex;">
+            <i class="fa-solid fa-headset"></i>
+            <span>TaskFlow <span style="color: var(--primary);">VA</span></span>
+          </a>
+          <p>Enterprise-grade Data Entry, Executive Support, and Virtual Assistant Services. Vetted talent ready for high-growth teams.</p>
+          <div class="social-links">
+            <a href="javascript:void(0)" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="javascript:void(0)" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+            <a href="javascript:void(0)" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="javascript:void(0)" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Data Entry & Cleaning</a></li>
+            <li><a href="services.html">Executive Scheduling</a></li>
+            <li><a href="services.html">Admin Operations</a></li>
+            <li><a href="services.html">E-Commerce Management</a></li>
+            <li><a href="services.html">B2B Lead Generation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home 1 (Enterprise)</a></li>
+            <li><a href="home2.html">Home 2 (Startup)</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="faq.html">FAQ & Resources</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Client Portal</h4>
+          <ul class="footer-links">
+            <li><a href="user-dashboard.html">Client Dashboard</a></li>
+            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+            <li><a href="login.html">Login Portal</a></li>
+            <li><a href="contact.html">24/7 Escalation</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 TaskFlow VA Technologies Inc. All rights reserved.</p>
+        <p>Supports LTR & RTL Internationalization</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

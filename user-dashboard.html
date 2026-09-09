@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Cpath d='M18.5 5L10 18h7l-3.5 9L24 14h-7z' fill='white'/%3E%3C/svg%3E">
+  <title>Client Dashboard | TaskFlow VA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="view-user-dashboard" class="page-view active">
+    <div class="dashboard-container">
+      <aside class="dashboard-sidebar">
+        <div class="sidebar-logo">
+          <a href="index.html" class="brand-logo" style="justify-content: center;">
+            <i class="fa-solid fa-headset"></i>
+            <span>TaskFlow <span style="color: var(--primary);">VA</span></span>
+          </a>
+        </div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item active" onclick="switchUserTab('overview', this)">
+            <a href="javascript:void(0)"><i class="fa-solid fa-chart-pie"></i> <span>1. Overview / Stats</span></a>
+          </li>
+          <li class="sidebar-item" onclick="switchUserTab('submit-task', this)">
+            <a href="javascript:void(0)"><i class="fa-solid fa-plus-circle"></i> <span>2. Submit Task Request</span></a>
+          </li>
+          <li class="sidebar-item" onclick="switchUserTab('active-tasks', this)">
+            <a href="javascript:void(0)"><i class="fa-solid fa-list-check"></i> <span>3. Active Tasks</span></a>
+          </li>
+          <li class="sidebar-item" onclick="switchUserTab('messaging', this)">
+            <a href="javascript:void(0)"><i class="fa-solid fa-comments"></i> <span>4. VA Messaging</span></a>
+          </li>
+          <li class="sidebar-item" onclick="switchUserTab('deliverables', this)">
+            <a href="javascript:void(0)"><i class="fa-solid fa-folder-open"></i> <span>5. Deliverable Files</span></a>
+          </li>
+          <li class="sidebar-item" onclick="switchUserTab('billing', this)">
+            <a href="javascript:void(0)"><i class="fa-solid fa-credit-card"></i> <span>6. Subscription & Billing</span></a>
+          </li>
+        </ul>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item logout" onclick="handleLogout()">
+            <a href="javascript:void(0)"><i class="fa-solid fa-right-from-bracket"></i> <span>Logout</span></a>
+          </li>
+        </ul>
+      </aside>
+
+      <main class="dashboard-main">
+        <div class="dashboard-topbar">
+          <div>
+            <h2 id="user-tab-title">Client Dashboard &bull; Overview</h2>
+            <p style="font-size: 0.875rem; color: var(--text-secondary);">Welcome back, <strong>Mark Roberts</strong> (Growth Pro Plan)</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="badge badge-accent"><i class="fa-solid fa-user-check"></i> Assigned VA: Sarah Jenkins</span>
+            <button class="control-btn" title="Toggle Light/Dark Theme" onclick="toggleTheme()"><i class="fa-solid fa-moon theme-icon-elem"></i></button>
+            <button class="control-btn" title="Toggle LTR/RTL Layout" onclick="toggleRTL()"><span class="rtl-text-elem" style="font-weight: 700; font-size: 0.8rem;">LTR</span></button>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-spinner"></i></div>
+            <div class="stat-info"><h3 id="ud-active-tasks">8</h3><p>Active Tasks</p></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+            <div class="stat-info"><h3 id="ud-hours-rem">34.5 hrs</h3><p>Subscription Hours Left</p></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <div class="stat-info"><h3 id="ud-completed">42</h3><p>Completed Tasks</p></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-user"></i></div>
+            <div class="stat-info"><h3>Sarah J.</h3><p>Primary VA</p></div>
+          </div>
+        </div>
+
+        <div id="user-tab-content">
+          <div class="dashboard-content-grid">
+            <div>
+              <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                  <h3>Weekly Task & Hours Usage Trend</h3>
+                  <span class="badge">Live Analytics</span>
+                </div>
+                <div class="chart-container">
+                  <svg viewBox="0 0 500 180" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: auto; display: block;">
+                    <line x1="0" y1="30" x2="500" y2="30" stroke="var(--card-border)" stroke-dasharray="4" />
+                    <line x1="0" y1="80" x2="500" y2="80" stroke="var(--card-border)" stroke-dasharray="4" />
+                    <line x1="0" y1="130" x2="500" y2="130" stroke="var(--card-border)" stroke-dasharray="4" />
+                    <defs>
+                      <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="var(--primary)" stop-opacity="0.3" />
+                        <stop offset="100%" stop-color="var(--primary)" stop-opacity="0.0" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M 20 130 Q 100 70, 180 90 T 340 40 T 480 80 L 480 160 L 20 160 Z" fill="url(#chartGrad)" />
+                    <path d="M 20 130 Q 100 70, 180 90 T 340 40 T 480 80" fill="none" stroke="var(--primary)" stroke-width="3" />
+                    <circle cx="20" cy="130" r="5" fill="var(--primary)" />
+                    <circle cx="180" cy="90" r="5" fill="var(--primary)" />
+                    <circle cx="340" cy="40" r="5" fill="var(--primary)" />
+                    <circle cx="480" cy="80" r="5" fill="var(--primary)" />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                  <h3>Task Status Distribution</h3>
+                  <span class="badge badge-accent">This Month</span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 2rem; padding: 1rem 0; flex-wrap: wrap;">
+                  <svg viewBox="0 0 200 200" style="width: 190px; height: 190px; flex-shrink: 0;">
+                    <defs>
+                      <filter id="pie-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,0.15)" />
+                      </filter>
+                    </defs>
+                    <circle cx="100" cy="100" r="70" fill="none" stroke="var(--success)" stroke-width="34" stroke-dasharray="205 360" stroke-dashoffset="90" filter="url(#pie-shadow)" />
+                    <circle cx="100" cy="100" r="70" fill="none" stroke="var(--primary)" stroke-width="34" stroke-dasharray="39 360" stroke-dashoffset="-115" filter="url(#pie-shadow)" />
+                    <circle cx="100" cy="100" r="70" fill="none" stroke="var(--warning)" stroke-width="34" stroke-dasharray="68 360" stroke-dashoffset="-154" filter="url(#pie-shadow)" />
+                    <circle cx="100" cy="100" r="70" fill="none" stroke="var(--danger, #ef4444)" stroke-width="34" stroke-dasharray="48 360" stroke-dashoffset="-222" filter="url(#pie-shadow)" />
+                    <circle cx="100" cy="100" r="52" fill="var(--card-bg)" />
+                    <text x="100" y="96" text-anchor="middle" font-size="22" font-weight="800" fill="var(--text-primary)">74</text>
+                    <text x="100" y="114" text-anchor="middle" font-size="10" fill="var(--text-muted)">Total Tasks</text>
+                  </svg>
+                  <div style="display: flex; flex-direction: column; gap: 0.75rem; min-width: 160px;">
+                    <div style="display: flex; align-items: center; gap: 0.6rem;"><span style="width: 14px; height: 14px; border-radius: 3px; background: var(--success);"></span><div><div style="font-size: 0.85rem; font-weight: 600;">Completed</div><div style="font-size: 0.78rem; color: var(--text-muted);">42 tasks · 57%</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 0.6rem;"><span style="width: 14px; height: 14px; border-radius: 3px; background: var(--primary);"></span><div><div style="font-size: 0.85rem; font-weight: 600;">In Progress</div><div style="font-size: 0.78rem; color: var(--text-muted);">8 tasks · 11%</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 0.6rem;"><span style="width: 14px; height: 14px; border-radius: 3px; background: var(--warning);"></span><div><div style="font-size: 0.85rem; font-weight: 600;">Pending Review</div><div style="font-size: 0.78rem; color: var(--text-muted);">14 tasks · 19%</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 0.6rem;"><span style="width: 14px; height: 14px; border-radius: 3px; background: #ef4444;"></span><div><div style="font-size: 0.85rem; font-weight: 600;">Cancelled</div><div style="font-size: 0.78rem; color: var(--text-muted);">10 tasks · 13%</div></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                  <h3>Messages with VA</h3>
+                  <i class="fa-solid fa-circle-dot" style="color: var(--success);"></i>
+                </div>
+                <div class="flex flex-col gap-2" id="user-messages-list"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

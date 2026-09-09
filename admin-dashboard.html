@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Cpath d='M18.5 5L10 18h7l-3.5 9L24 14h-7z' fill='white'/%3E%3C/svg%3E">
+  <title>Admin Dashboard | TaskFlow VA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="view-admin-dashboard" class="page-view active">
+    <div class="dashboard-container">
+      <aside class="dashboard-sidebar" style="border-inline-end-color: var(--accent);">
+        <div class="sidebar-logo">
+          <a href="index.html" class="brand-logo" style="justify-content: center;">
+            <i class="fa-solid fa-headset"></i>
+            <span>TaskFlow <span style="color: var(--primary);">VA</span></span>
+          </a>
+        </div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item active" onclick="switchAdminTab('overview', this)">
+            <a href="javascript:void(0)"><i class="fa-solid fa-chart-line"></i> <span>1. Admin Overview</span></a>
+          </li>
+          <li class="sidebar-item" onclick="switchAdminTab('all-tasks', this)">
+            <a href="javascript:void(0)"><i class="fa-solid fa-tasks"></i> <span>2. All Client Tasks</span></a>
+          </li>
+          <li class="sidebar-item" onclick="switchAdminTab('va-team', this)">
+            <a href="javascript:void(0)"><i class="fa-solid fa-users-gear"></i> <span>3. VA Team Allocation</span></a>
+          </li>
+          <li class="sidebar-item" onclick="switchAdminTab('revenue', this)">
+            <a href="javascript:void(0)"><i class="fa-solid fa-wallet"></i> <span>4. Revenue & Subscriptions</span></a>
+          </li>
+          <li class="sidebar-item" onclick="switchAdminTab('qc-audit', this)">
+            <a href="javascript:void(0)"><i class="fa-solid fa-shield-check"></i> <span>5. Quality Control Audit</span></a>
+          </li>
+          <li class="sidebar-item" onclick="switchAdminTab('settings', this)">
+            <a href="javascript:void(0)"><i class="fa-solid fa-gears"></i> <span>6. System Settings</span></a>
+          </li>
+        </ul>
+        <ul class="sidebar-menu">
+          <li class="sidebar-item logout" onclick="handleLogout()">
+            <a href="javascript:void(0)"><i class="fa-solid fa-right-from-bracket"></i> <span>Logout</span></a>
+          </li>
+        </ul>
+      </aside>
+
+      <main class="dashboard-main">
+        <div class="dashboard-topbar">
+          <div>
+            <h2 id="admin-tab-title">Admin Operations Control Center</h2>
+            <p style="font-size: 0.875rem; color: var(--text-secondary);">Super Admin Portal &bull; System Health: 100% Operational</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="badge badge-accent">Admin Mode</div>
+            <button class="control-btn" title="Toggle Light/Dark Theme" onclick="toggleTheme()"><i class="fa-solid fa-moon theme-icon-elem"></i></button>
+            <button class="control-btn" title="Toggle LTR/RTL Layout" onclick="toggleRTL()"><span class="rtl-text-elem" style="font-weight: 700; font-size: 0.8rem;">LTR</span></button>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-building-user"></i></div>
+            <div class="stat-info"><h3>142</h3><p>Total Active Clients</p></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-user-group"></i></div>
+            <div class="stat-info"><h3>38 VAs</h3><p>Active Assistants</p></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+            <div class="stat-info"><h3>$89,400</h3><p>Monthly Recurring Rev</p></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <div class="stat-info"><h3>99.8%</h3><p>SLA Compliance Rate</p></div>
+          </div>
+        </div>
+
+        <div id="admin-tab-content">
+          <div class="dashboard-content-grid">
+            <div>
+              <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                  <h3>Active Client Subscriptions</h3>
+                  <span class="badge">Live Feed</span>
+                </div>
+                <div class="table-responsive">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>Client Name</th>
+                        <th>Plan Tier</th>
+                        <th>Active Tasks</th>
+                        <th>Hours Consumed</th>
+                        <th>VA Assigned</th>
+                      </tr>
+                    </thead>
+                    <tbody id="admin-client-tbody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                  <h3>VA Roster Status</h3>
+                  <button class="btn btn-sm btn-primary">+ Dispatch VA</button>
+                </div>
+                <div class="flex flex-col gap-2" id="admin-va-list"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

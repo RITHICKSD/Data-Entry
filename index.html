@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Cpath d='M18.5 5L10 18h7l-3.5 9L24 14h-7z' fill='white'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Cpath d='M18.5 5L10 18h7l-3.5 9L24 14h-7z' fill='white'/%3E%3C/svg%3E">
+  <title>Home 1 | TaskFlow VA - Professional Virtual Assistant Services</title>
+  <meta name="description" content="Enterprise-grade Data Entry, Executive Scheduling, E-commerce Support, and Virtual Assistant Services. Scalable assistant packages for businesses and leaders.">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Leaflet Map CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Custom Application Styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- COMMON HEADER -->
+  <header class="app-header" id="app-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo">
+        <i class="fa-solid fa-headset"></i>
+        <span>TaskFlow <span style="color: var(--primary);">VA</span></span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item dropdown">
+            <a href="javascript:void(0)" class="nav-link" id="home-dropdown-btn">
+              <span>Home</span>
+              <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+            </a>
+            <div class="dropdown-menu">
+              <a href="index.html" class="dropdown-item">Home 1</a>
+              <a href="home2.html" class="dropdown-item">Home 2</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="services.html" class="nav-link">Services</a>
+          </li>
+          <li class="nav-item">
+            <a href="case-studies.html" class="nav-link">Case Studies</a>
+          </li>
+          <li class="nav-item">
+            <a href="faq.html" class="nav-link">FAQ & Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="javascript:void(0)" class="nav-link" id="dashboard-dropdown-btn">
+              <span>Dashboard</span>
+              <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+            </a>
+            <div class="dropdown-menu">
+              <a href="user-dashboard.html" class="dropdown-item">User Dashboard</a>
+              <a href="admin-dashboard.html" class="dropdown-item">Admin Dashboard</a>
+            </div>
+          </li>
+          <li class="nav-item mobile-only-controls" style="margin-top: 1rem; border-top: 1px solid var(--card-border); padding-top: 1.5rem;">
+            <div class="mobile-controls-row">
+              <button class="mobile-ctrl-btn" title="Toggle Light/Dark Theme" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon theme-icon-elem"></i>
+                <span>Theme</span>
+              </button>
+              <button class="mobile-ctrl-btn" title="Toggle LTR/RTL Layout" onclick="toggleRTL()">
+                <span class="rtl-text-elem" style="font-weight: 700;">LTR</span>
+                <span>Layout</span>
+              </button>
+            </div>
+            <a href="login.html" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 1rem; padding: 0.75rem;">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              <span>Login</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="control-btn desktop-only-control" id="theme-toggle" title="Toggle Light/Dark Theme" onclick="toggleTheme()">
+          <i class="fa-solid fa-moon theme-icon-elem" id="theme-icon"></i>
+        </button>
+        <button class="control-btn desktop-only-control" id="rtl-toggle" title="Toggle LTR/RTL Layout" onclick="toggleRTL()">
+          <span id="rtl-text" class="rtl-text-elem" style="font-weight: 700; font-size: 0.8rem;">LTR</span>
+        </button>
+        <a href="login.html" class="btn btn-primary btn-sm desktop-only-control">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <span>Login</span>
+        </a>
+        <button class="control-btn mobile-toggle" onclick="toggleMobileMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="app-content">
+    <!-- HOME 1 PAGE -->
+    <div id="view-home1" class="page-view active">
+      <!-- Section 1: Hero Banner -->
+      <section class="hero-section hero-section-bg hero-bg-home1">
+        <div class="container">
+          <div class="hero-content hero-content-center">
+            <span class="badge"><i class="fa-solid fa-shield-halved"></i> 99.9% Data Accuracy SLA</span>
+            <h1>Delegate Your Admin & Data Operations To Elite Assistants</h1>
+            <p style="color: #ffffff;">Empower your executive leadership team with vetted Virtual Assistants and Data Entry specialists. Save up to 70% of operational overhead with 24/7 turnaround.</p>
+            <div class="flex gap-2 items-center justify-center">
+              <a href="pricing.html" class="btn btn-primary btn-lg">
+                <span>Explore Assistant Plans</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a href="how-it-works.html" class="btn btn-secondary btn-lg">
+                <i class="fa-solid fa-circle-play"></i> Watch How It Works
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Key Capabilities & Live Stats -->
+      <section class="section-padding" style="background: var(--bg-secondary); border-y: 1px solid var(--card-border);">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-bolt"></i></div>
+              <div class="stat-info">
+                <h3>&lt; 15 Mins</h3>
+                <p>Average Task Response</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-user-shield"></i></div>
+              <div class="stat-info">
+                <h3>100% Vetted</h3>
+                <p>Background Checked VAs</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-clock"></i></div>
+              <div class="stat-info">
+                <h3>45,000+ Hrs</h3>
+                <p>Saved for Clients Annually</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
+              <div class="stat-info">
+                <h3>4.98 / 5.0</h3>
+                <p>Customer Satisfaction Rating</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Core Capabilities & Featured Services -->
+      <section class="section-padding">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="badge">Comprehensive Capabilities</span>
+            <h2>Tailored Solutions for Busy Teams</h2>
+            <p>From complex spreadsheet data entry to executive calendar management and e-commerce inventory maintenance.</p>
+          </div>
+          <div class="grid-3" id="home1-services-grid"></div>
+        </div>
+      </section>
+
+      <!-- Section 4: Interactive ROI & Hours Estimator -->
+      <section class="section-padding" style="background: var(--bg-secondary);">
+        <div class="container">
+          <div class="grid-2 items-center">
+            <div>
+              <span class="badge badge-accent">Interactive ROI Calculator</span>
+              <h2 style="font-size: 2.25rem; margin: 1rem 0;">Calculate How Much Time & Capital You Save</h2>
+              <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">See instant cost comparisons between hiring an in-house full-time administrative employee versus utilizing TaskFlow dedicated assistant plans.</p>
+
+              <div class="form-group">
+                <label>Weekly Hours Spent on Admin & Data Entry:</label>
+                <input type="range" min="10" max="80" value="25" class="form-control" id="calc-hours" oninput="updateCalculator()">
+                <div class="flex justify-between" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                  <span>10 hrs/wk</span>
+                  <span id="calc-hours-val" style="font-weight: 700; color: var(--primary);">25 hrs/wk</span>
+                  <span>80 hrs/wk</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Your Internal Hourly Rate ($):</label>
+                <input type="number" value="65" class="form-control" id="calc-rate" oninput="updateCalculator()">
+              </div>
+            </div>
+
+            <div class="feature-card" style="background: var(--card-bg); text-align: center; border-color: var(--primary);">
+              <h3 style="color: var(--text-muted); font-size: 1rem; text-transform: uppercase;">Estimated Monthly Savings</h3>
+              <div style="font-size: 3.5rem; font-weight: 800; color: var(--success); margin: 0.5rem 0;" id="calc-savings-result">$4,875</div>
+              <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Plus over <strong><span id="calc-hours-saved">100</span> hours reclaimed</strong> every month to focus on business growth.</p>
+              <a href="pricing.html" class="btn btn-primary">Get Started with a VA</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Client Testimonials & Endorsements -->
+      <section class="section-padding">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="badge">Client Feedback</span>
+            <h2>Trusted by Leaders & Growth Agencies</h2>
+            <p>Read how executive teams scale their daily bandwidth with our managed virtual assistants.</p>
+          </div>
+          <div class="grid-3">
+            <div class="feature-card">
+              <div class="flex gap-1" style="color: var(--warning); margin-bottom: 1rem;">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">"TaskFlow's data entry team processed our quarterly product catalog update in less than 48 hours. Accuracy was 100% spot on!"</p>
+              <div class="flex items-center gap-2">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" style="width: 48px; height: 48px; border-radius: 50%;" alt="Client">
+                <div>
+                  <strong>Rachel Vance</strong>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">VP Ops, Nexus E-Commerce</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="flex gap-1" style="color: var(--warning); margin-bottom: 1rem;">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">"Having Sarah as my dedicated executive VA feels like gaining 15 extra hours back every single week. Highly recommend."</p>
+              <div class="flex items-center gap-2">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" style="width: 48px; height: 48px; border-radius: 50%;" alt="Client">
+                <div>
+                  <strong>Marcus Brody</strong>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Founder, Apex SaaS Studio</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="flex gap-1" style="color: var(--warning); margin-bottom: 1rem;">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">"The dashboard makes submitting CRM data entry and invoicing requests seamless. Updates arrive right on schedule."</p>
+              <div class="flex items-center gap-2">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=120&q=80" style="width: 48px; height: 48px; border-radius: 50%;" alt="Client">
+                <div>
+                  <strong>Elena Gomez</strong>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Director of Logistics, Global Hub</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Action Banner CTA -->
+      <section class="section-padding" style="background: linear-gradient(135deg, var(--primary), #1d4ed8); color: #ffffff;">
+        <div class="container text-center">
+          <h2 style="font-size: 2.5rem; color: #ffffff; margin-bottom: 1rem;">Ready to Onboard Your Vetted Assistant?</h2>
+          <p style="font-size: 1.15rem; color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto 2rem auto;">Match with an experienced virtual assistant in 24 hours. Zero risk with our 14-day satisfaction guarantee.</p>
+          <div class="flex justify-center gap-2">
+            <a href="pricing.html" class="btn btn-secondary btn-lg" style="color: var(--primary);">View Subscription Plans</a>
+            <a href="contact.html" class="btn btn-outline btn-lg" style="border-color: #fff; color: #fff;">Schedule Consultation</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- COMMON FOOTER -->
+  <footer class="app-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem; display: inline-flex;">
+            <i class="fa-solid fa-headset"></i>
+            <span>TaskFlow <span style="color: var(--primary);">VA</span></span>
+          </a>
+          <p>Enterprise-grade Data Entry, Executive Support, and Virtual Assistant Services. Vetted talent ready for high-growth teams.</p>
+          <div class="social-links">
+            <a href="javascript:void(0)" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="javascript:void(0)" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+            <a href="javascript:void(0)" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="javascript:void(0)" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Data Entry & Cleaning</a></li>
+            <li><a href="services.html">Executive Scheduling</a></li>
+            <li><a href="services.html">Admin Operations</a></li>
+            <li><a href="services.html">E-Commerce Management</a></li>
+            <li><a href="services.html">B2B Lead Generation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home 1 (Enterprise)</a></li>
+            <li><a href="home2.html">Home 2 (Startup)</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="faq.html">FAQ & Resources</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Client Portal</h4>
+          <ul class="footer-links">
+            <li><a href="user-dashboard.html">Client Dashboard</a></li>
+            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+            <li><a href="login.html">Login Portal</a></li>
+            <li><a href="contact.html">24/7 Escalation</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 TaskFlow VA Technologies Inc. All rights reserved.</p>
+        <p>Supports LTR & RTL Internationalization</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

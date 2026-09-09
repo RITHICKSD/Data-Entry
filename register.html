@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Cpath d='M18.5 5L10 18h7l-3.5 9L24 14h-7z' fill='white'/%3E%3C/svg%3E">
+  <title>Register | TaskFlow VA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="view-register" class="page-view active">
+    <section class="auth-page-section">
+      <div class="auth-page-topbar">
+        <div class="auth-page-corner-toggles">
+          <button class="control-btn" onclick="toggleTheme()" title="Toggle Theme"><i class="fa-solid fa-moon theme-icon-elem"></i></button>
+          <button class="control-btn" onclick="toggleRTL()" title="Toggle LTR/RTL"><span class="rtl-text-elem" style="font-weight: 700; font-size: 0.75rem;">LTR</span></button>
+        </div>
+      </div>
+
+      <div class="auth-page-card">
+        <div class="auth-header text-center">
+          <a href="index.html" class="auth-brand-logo" style="cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+            <i class="fa-solid fa-headset" style="color: var(--primary); font-size: 2rem;"></i>
+            <span style="font-weight: 800; font-size: 1.5rem; letter-spacing: -0.5px; color: var(--text-primary);">TaskFlow <span style="color: var(--primary);">VA</span></span>
+          </a>
+        </div>
+
+        <div class="text-center" style="margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.75rem; margin-bottom: 0.35rem;">Create Your Account</h2>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Start delegating admin tasks to elite assistants</p>
+        </div>
+
+        <form onsubmit="handleModalRegister(event)">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" class="form-control" placeholder="e.g. Sarah Jenkins" required>
+          </div>
+          <div class="form-group">
+            <label>Work Email Address</label>
+            <input type="email" class="form-control" placeholder="name@company.com" required>
+          </div>
+          <div class="form-group">
+            <label>Create Password</label>
+            <input type="password" class="form-control" placeholder="At least 8 characters" required>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem; font-weight: 600; font-size: 1rem; margin-top: 0.5rem;">Create Account</button>
+        </form>
+
+        <div class="auth-divider"><span>or continue with</span></div>
+
+        <div class="social-login-grid">
+          <button class="social-btn" onclick="handleSocialAuth('Google')">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.5 1 3.7 3.6 1.9 7.3l3.7 2.9C6.5 7.3 9 5 12 5z"/><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/><path fill="#FBBC05" d="M5.6 14.8c-.2-.7-.4-1.5-.4-2.3s.2-1.6.4-2.3L1.9 7.3C.7 9.7 0 10.8 0 12s.7 2.3 1.9 4.7l3.7-2.9z"/><path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3 0-5.5-2.3-6.4-5.2L1.9 16C3.7 19.7 7.5 23 12 23z"/></svg>
+            <span>Google</span>
+          </button>
+          <button class="social-btn" onclick="handleSocialAuth('Apple')">
+            <i class="fa-brands fa-apple" style="font-size: 1.2rem; color: var(--text-main);"></i>
+            <span>Apple</span>
+          </button>
+        </div>
+
+        <div class="auth-footer-note text-center">
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 1.5rem;">
+            Already have an account? <a href="login.html" style="color: var(--primary); font-weight: 600;">Sign in</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
