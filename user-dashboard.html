@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Cpath d='M18.5 5L10 18h7l-3.5 9L24 14h-7z' fill='white'/%3E%3C/svg%3E">
-  <title>Client Dashboard | TaskFlow VA</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Cpath d='M7 9h18M7 16h18M7 23h18M13 5v22' stroke='white' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <title>Client Dashboard | DataX</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -16,8 +16,16 @@
       <aside class="dashboard-sidebar">
         <div class="sidebar-logo">
           <a href="index.html" class="brand-logo" style="justify-content: center;">
-            <i class="fa-solid fa-headset"></i>
-            <span>TaskFlow <span style="color: var(--primary);">VA</span></span>
+            <span class="brand-logo-icon-svg">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+                <path d="M3 9h18"></path>
+                <path d="M3 15h18"></path>
+                <path d="M9 3v18"></path>
+                <path d="M13 12l2 2 4-4" stroke-width="2.5"></path>
+              </svg>
+            </span>
+            <span>Data<span class="logo-x">X</span></span>
           </a>
         </div>
         <ul class="sidebar-menu">
@@ -57,6 +65,59 @@
             <span class="badge badge-accent"><i class="fa-solid fa-user-check"></i> Assigned VA: Sarah Jenkins</span>
             <button class="control-btn" title="Toggle Light/Dark Theme" onclick="toggleTheme()"><i class="fa-solid fa-moon theme-icon-elem"></i></button>
             <button class="control-btn" title="Toggle LTR/RTL Layout" onclick="toggleRTL()"><span class="rtl-text-elem" style="font-weight: 700; font-size: 0.8rem;">LTR</span></button>
+          </div>
+        </div>
+
+        <!-- CLIENT PROFILE CARD (Shown in Content Area after the two toggles) -->
+        <div class="dashboard-client-profile-card">
+          <div class="client-profile-top">
+            <div class="client-profile-main">
+              <div class="client-avatar-container">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80" alt="Client Mark Roberts" class="client-avatar-img">
+                <span class="client-status-dot" title="Active Client"></span>
+              </div>
+              <div class="client-info-details">
+                <h3>Mark Roberts <span class="badge badge-accent" style="font-size: 0.75rem;"><i class="fa-solid fa-crown"></i> Enterprise DataX VIP</span></h3>
+                <p><i class="fa-solid fa-building" style="color: var(--primary); margin-inline-end: 0.4rem;"></i> Operations Director at Apex Global Logistics</p>
+                <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem;">Client Account ID: <strong>#DX-94021</strong> &bull; Member since Jan 2024</div>
+              </div>
+            </div>
+
+            <div class="flex gap-2 flex-wrap">
+              <button class="btn btn-sm btn-primary" onclick="alert('Client Profile settings opened.')"><i class="fa-solid fa-user-pen"></i> Edit Profile</button>
+              <button class="btn btn-sm btn-secondary" onclick="alert('Account export triggered.')"><i class="fa-solid fa-file-export"></i> Export Data</button>
+            </div>
+          </div>
+
+          <div class="client-meta-grid">
+            <div class="client-meta-item">
+              <div class="client-meta-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <div class="client-meta-label">Email Address</div>
+                <div class="client-meta-value">mark.roberts@apexglobal.com</div>
+              </div>
+            </div>
+            <div class="client-meta-item">
+              <div class="client-meta-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <div class="client-meta-label">Direct Phone</div>
+                <div class="client-meta-value">+1 (555) 234-8901</div>
+              </div>
+            </div>
+            <div class="client-meta-item">
+              <div class="client-meta-icon"><i class="fa-solid fa-user-gear"></i></div>
+              <div>
+                <div class="client-meta-label">Assigned Data Lead</div>
+                <div class="client-meta-value">Sarah Jenkins (Sr. Data VA)</div>
+              </div>
+            </div>
+            <div class="client-meta-item">
+              <div class="client-meta-icon"><i class="fa-solid fa-chart-pie"></i></div>
+              <div>
+                <div class="client-meta-label">Active Plan</div>
+                <div class="client-meta-value">Growth Pro (50 hrs/mo)</div>
+              </div>
+            </div>
           </div>
         </div>
 
