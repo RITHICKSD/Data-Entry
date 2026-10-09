@@ -7,8 +7,6 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Cpath d='M7 9h18M7 16h18M7 23h18M13 5v22' stroke='white' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
   <title>Contact Us | DataX</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -150,13 +148,51 @@
       </section>
 
       <section class="section-padding" style="background: var(--bg-secondary);">
-        <div class="container text-center">
-          <div class="section-header text-center">
+        <div class="container">
+          <!-- Global support info cards -->
+          <div class="section-header text-center" style="margin-bottom: 2rem;">
             <span class="badge badge-accent"><i class="fa-solid fa-map-location-dot"></i> Global Support Network</span>
             <h2>Our Global Operations & Dispatcher Map</h2>
-            <p style="color: var(--text-secondary);">Interactive 24/7 coverage map spanning Americas, EMEA, and APAC hubs.</p>
+            <p style="color: var(--text-secondary);">24/7 coverage spanning Americas, EMEA, and APAC hubs.</p>
           </div>
-          <div id="contact-map" style="height: 420px; width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-md); border: 1px solid var(--card-border); z-index: 1;"></div>
+
+          <!-- Office location stats strip -->
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 2rem;">
+            <div class="feature-card text-center" style="padding: 1.25rem;">
+              <div style="width: 44px; height: 44px; background: var(--primary-light); color: var(--primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin: 0 auto 0.75rem auto;"><i class="fa-solid fa-location-dot"></i></div>
+              <div style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary);">San Francisco</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Global HQ &bull; Americas</div>
+            </div>
+            <div class="feature-card text-center" style="padding: 1.25rem;">
+              <div style="width: 44px; height: 44px; background: var(--primary-light); color: var(--primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin: 0 auto 0.75rem auto;"><i class="fa-solid fa-location-dot"></i></div>
+              <div style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary);">London</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">EMEA Hub &bull; Europe</div>
+            </div>
+            <div class="feature-card text-center" style="padding: 1.25rem;">
+              <div style="width: 44px; height: 44px; background: var(--primary-light); color: var(--primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin: 0 auto 0.75rem auto;"><i class="fa-solid fa-location-dot"></i></div>
+              <div style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary);">Singapore</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">APAC Hub &bull; Asia Pacific</div>
+            </div>
+            <div class="feature-card text-center" style="padding: 1.25rem; background: var(--primary); border-color: var(--primary);">
+              <div style="width: 44px; height: 44px; background: rgba(255,255,255,0.2); color: #fff; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin: 0 auto 0.75rem auto;"><i class="fa-solid fa-headset"></i></div>
+              <div style="font-size: 1.3rem; font-weight: 800; color: #fff;">24 / 7</div>
+              <div style="font-size: 0.8rem; color: rgba(255,255,255,0.85);">Always-on Support</div>
+            </div>
+          </div>
+
+          <!-- Google Maps embed — San Francisco HQ -->
+          <div style="border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-md); border: 1px solid var(--card-border);">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0863085889396!2d-122.39954548468204!3d37.78874997975752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858081e37a8d3f%3A0x5f7f5b6b5b5b5b5b!2s500%20Tech%20Plaza%2C%20San%20Francisco%2C%20CA%2094105!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+              width="100%"
+              height="420"
+              style="border: 0; display: block;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="DataX Global Headquarters — San Francisco, CA">
+            </iframe>
+          </div>
         </div>
       </section>
     </div>

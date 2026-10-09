@@ -65,6 +65,40 @@
             <span class="badge badge-accent"><i class="fa-solid fa-user-check"></i> Assigned VA: Sarah Jenkins</span>
             <button class="control-btn" title="Toggle Light/Dark Theme" onclick="toggleTheme()"><i class="fa-solid fa-moon theme-icon-elem"></i></button>
             <button class="control-btn" title="Toggle LTR/RTL Layout" onclick="toggleRTL()"><span class="rtl-text-elem" style="font-weight: 700; font-size: 0.8rem;">LTR</span></button>
+
+            <!-- Profile Dropdown -->
+            <div class="nav-profile-wrap" style="position: relative;">
+              <button class="dashboard-profile-btn" aria-label="Profile menu" title="My Profile">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Mark Roberts" class="dashboard-profile-avatar">
+                <span class="nav-profile-name">Mark Roberts</span>
+                <i class="fa-solid fa-chevron-down nav-profile-chevron"></i>
+              </button>
+              <div class="nav-profile-dropdown">
+                <div class="nav-profile-dropdown-header">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Mark Roberts">
+                  <div class="pdh-info">
+                    <strong>Mark Roberts</strong>
+                    <span>Growth Pro Plan &bull; Client</span>
+                  </div>
+                </div>
+                <a href="javascript:void(0)" class="nav-profile-dropdown-item" onclick="alert('Profile settings opened.')">
+                  <i class="fa-solid fa-user-pen"></i> Edit Profile
+                </a>
+                <a href="javascript:void(0)" class="nav-profile-dropdown-item" onclick="switchUserTab('billing', document.querySelector('[onclick*=billing]'))">
+                  <i class="fa-solid fa-credit-card"></i> Subscription & Billing
+                </a>
+                <a href="javascript:void(0)" class="nav-profile-dropdown-item" onclick="alert('Security settings opened.')">
+                  <i class="fa-solid fa-shield-halved"></i> Security Settings
+                </a>
+                <a href="javascript:void(0)" class="nav-profile-dropdown-item" onclick="alert('Notification preferences opened.')">
+                  <i class="fa-solid fa-bell"></i> Notifications
+                </a>
+                <div class="nav-profile-dropdown-divider"></div>
+                <a href="javascript:void(0)" class="nav-profile-dropdown-item logout-item" onclick="handleLogout()">
+                  <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 

@@ -65,6 +65,40 @@
             <div class="badge badge-accent">Admin Mode</div>
             <button class="control-btn" title="Toggle Light/Dark Theme" onclick="toggleTheme()"><i class="fa-solid fa-moon theme-icon-elem"></i></button>
             <button class="control-btn" title="Toggle LTR/RTL Layout" onclick="toggleRTL()"><span class="rtl-text-elem" style="font-weight: 700; font-size: 0.8rem;">LTR</span></button>
+
+            <!-- Profile Dropdown -->
+            <div class="nav-profile-wrap" style="position: relative;">
+              <button class="dashboard-profile-btn" aria-label="Admin profile menu" title="Admin Profile">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Alexander Vance" class="dashboard-profile-avatar" style="border-color: var(--accent);">
+                <span class="nav-profile-name">Alexander Vance</span>
+                <i class="fa-solid fa-chevron-down nav-profile-chevron"></i>
+              </button>
+              <div class="nav-profile-dropdown">
+                <div class="nav-profile-dropdown-header">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Alexander Vance" style="border-color: var(--accent);">
+                  <div class="pdh-info">
+                    <strong>Alexander Vance</strong>
+                    <span>Chief Operations Admin</span>
+                  </div>
+                </div>
+                <a href="javascript:void(0)" class="nav-profile-dropdown-item" onclick="alert('Admin Profile Settings Opened')">
+                  <i class="fa-solid fa-user-gear"></i> Admin Settings
+                </a>
+                <a href="javascript:void(0)" class="nav-profile-dropdown-item" onclick="switchAdminTab('settings', document.querySelector('[onclick*=settings]'))">
+                  <i class="fa-solid fa-gears"></i> System Settings
+                </a>
+                <a href="javascript:void(0)" class="nav-profile-dropdown-item" onclick="alert('Fetching Platform Audit Logs...')">
+                  <i class="fa-solid fa-shield-cat"></i> Audit Logs
+                </a>
+                <a href="javascript:void(0)" class="nav-profile-dropdown-item" onclick="alert('Security panel opened.')">
+                  <i class="fa-solid fa-shield-halved"></i> Security Panel
+                </a>
+                <div class="nav-profile-dropdown-divider"></div>
+                <a href="javascript:void(0)" class="nav-profile-dropdown-item logout-item" onclick="handleLogout()">
+                  <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
