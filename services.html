@@ -85,18 +85,8 @@
 
       <section class="section-padding">
         <div class="container">
-          <!-- Services overview image banner -->
-          <div style="margin-bottom: 2.5rem; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); position: relative;">
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&auto=format&fit=crop&q=80" alt="Virtual assistants and data specialists working together" style="width: 100%; height: 260px; object-fit: cover; object-position: center 40%; display: block;">
-            <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(15,23,42,0.8) 0%, rgba(15,23,42,0.3) 55%, transparent 100%); display: flex; align-items: center; padding: 2.5rem;">
-              <div>
-                <div class="badge" style="margin-bottom: 0.75rem; display: inline-flex;">Full-Spectrum VA Services</div>
-                <h2 style="font-size: 1.8rem; color: #fff; margin-bottom: 0.5rem;">Every Admin Task. One Dedicated Team.</h2>
-                <p style="color: rgba(255,255,255,0.8); font-size: 0.95rem; max-width: 460px;">From spreadsheet processing to executive scheduling — our specialists slot directly into your workflow.</p>
-              </div>
-            </div>
-          </div>
-          <div class="grid-3" id="services-main-catalog"></div>
+          <!-- Fix: Services catalog grid - cards use flex column so CTA buttons are bottom-aligned -->
+          <div class="grid-3" id="services-main-catalog" style="align-items: stretch;"></div>
         </div>
       </section>
 

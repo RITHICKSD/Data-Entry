@@ -6,6 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
   initApp();
 });
 
+// Auto-close dashboard sidebar when resizing to desktop
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    if (typeof closeDashboardSidebar === 'function') {
+      closeDashboardSidebar('user');
+      closeDashboardSidebar('admin');
+    }
+  }
+});
+
 function initApp() {
   renderServices();
   renderPricing();
@@ -68,6 +78,50 @@ function toggleMobileMenu() {
   const navMenu = document.getElementById('nav-menu');
   navMenu.classList.toggle('open');
 }
+
+/* --------------------------------------------------------------------------
+   DASHBOARD MOBILE SIDEBAR — Hamburger drawer toggle
+   -------------------------------------------------------------------------- */
+function toggleDashboardSidebar(dashType) {
+  const sidebar = document.getElementById(`${dashType}-dashboard-sidebar`);
+  const overlay = document.getElementById(`${dashType}-sidebar-overlay`);
+  const closeBtn = document.getElementById(`${dashType}-sidebar-close`);
+  const icon = document.getElementById(`${dashType}-hamburger-icon`);
+
+  if (!sidebar) return;
+
+  const isOpen = sidebar.classList.contains('mobile-open');
+
+  if (isOpen) {
+    closeDashboardSidebar(dashType);
+  } else {
+    sidebar.classList.add('mobile-open');
+    if (overlay) overlay.classList.add('active');
+    if (closeBtn) closeBtn.style.display = 'flex';
+    if (icon) {
+      icon.className = 'fa-solid fa-xmark';
+    }
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeDashboardSidebar(dashType) {
+  const sidebar = document.getElementById(`${dashType}-dashboard-sidebar`);
+  const overlay = document.getElementById(`${dashType}-sidebar-overlay`);
+  const closeBtn = document.getElementById(`${dashType}-sidebar-close`);
+  const icon = document.getElementById(`${dashType}-hamburger-icon`);
+
+  if (!sidebar) return;
+
+  sidebar.classList.remove('mobile-open');
+  if (overlay) overlay.classList.remove('active');
+  if (closeBtn) closeBtn.style.display = 'none';
+  if (icon) {
+    icon.className = 'fa-solid fa-bars';
+  }
+  document.body.style.overflow = '';
+}
+
 
 /* --------------------------------------------------------------------------
    2. THEME & RTL CONTROLS

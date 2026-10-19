@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr" data-theme="light">
 
 <head>
@@ -12,9 +12,32 @@
 
 <body>
   <div id="view-user-dashboard" class="page-view active">
+
+    <!-- Mobile Hamburger Topbar (visible only on mobile) -->
+    <div class="dashboard-mobile-topbar" id="user-mobile-topbar">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-logo-icon-svg">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+            <path d="M3 9h18"></path>
+            <path d="M3 15h18"></path>
+            <path d="M9 3v18"></path>
+            <path d="M13 12l2 2 4-4" stroke-width="2.5"></path>
+          </svg>
+        </span>
+        <span>Data<span class="logo-x">X</span></span>
+      </a>
+      <button class="dash-hamburger-btn" id="user-hamburger-btn" onclick="toggleDashboardSidebar('user')" aria-label="Open sidebar menu" title="Menu">
+        <i class="fa-solid fa-bars" id="user-hamburger-icon"></i>
+      </button>
+    </div>
+
+    <!-- Overlay (closes sidebar on tap) -->
+    <div class="dashboard-sidebar-overlay" id="user-sidebar-overlay" onclick="closeDashboardSidebar('user')"></div>
+
     <div class="dashboard-container">
-      <aside class="dashboard-sidebar">
-        <div class="sidebar-logo">
+      <aside class="dashboard-sidebar" id="user-dashboard-sidebar">
+        <div class="sidebar-logo" style="display: flex; align-items: center; justify-content: space-between;">
           <a href="index.html" class="brand-logo" style="justify-content: center;">
             <span class="brand-logo-icon-svg">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -27,24 +50,27 @@
             </span>
             <span>Data<span class="logo-x">X</span></span>
           </a>
+          <button class="dash-hamburger-btn" onclick="closeDashboardSidebar('user')" style="display: none;" id="user-sidebar-close" aria-label="Close sidebar" title="Close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
         </div>
         <ul class="sidebar-menu">
-          <li class="sidebar-item active" onclick="switchUserTab('overview', this)">
+          <li class="sidebar-item active" onclick="switchUserTab('overview', this); closeDashboardSidebar('user')">
             <a href="javascript:void(0)"><i class="fa-solid fa-chart-pie"></i> <span>1. Overview / Stats</span></a>
           </li>
-          <li class="sidebar-item" onclick="switchUserTab('submit-task', this)">
+          <li class="sidebar-item" onclick="switchUserTab('submit-task', this); closeDashboardSidebar('user')">
             <a href="javascript:void(0)"><i class="fa-solid fa-plus-circle"></i> <span>2. Submit Task Request</span></a>
           </li>
-          <li class="sidebar-item" onclick="switchUserTab('active-tasks', this)">
+          <li class="sidebar-item" onclick="switchUserTab('active-tasks', this); closeDashboardSidebar('user')">
             <a href="javascript:void(0)"><i class="fa-solid fa-list-check"></i> <span>3. Active Tasks</span></a>
           </li>
-          <li class="sidebar-item" onclick="switchUserTab('messaging', this)">
+          <li class="sidebar-item" onclick="switchUserTab('messaging', this); closeDashboardSidebar('user')">
             <a href="javascript:void(0)"><i class="fa-solid fa-comments"></i> <span>4. VA Messaging</span></a>
           </li>
-          <li class="sidebar-item" onclick="switchUserTab('deliverables', this)">
+          <li class="sidebar-item" onclick="switchUserTab('deliverables', this); closeDashboardSidebar('user')">
             <a href="javascript:void(0)"><i class="fa-solid fa-folder-open"></i> <span>5. Deliverable Files</span></a>
           </li>
-          <li class="sidebar-item" onclick="switchUserTab('billing', this)">
+          <li class="sidebar-item" onclick="switchUserTab('billing', this); closeDashboardSidebar('user')">
             <a href="javascript:void(0)"><i class="fa-solid fa-credit-card"></i> <span>6. Subscription & Billing</span></a>
           </li>
         </ul>
@@ -224,10 +250,10 @@
                     <text x="100" y="114" text-anchor="middle" font-size="10" fill="var(--text-muted)">Total Tasks</text>
                   </svg>
                   <div style="display: flex; flex-direction: column; gap: 0.75rem; min-width: 160px;">
-                    <div style="display: flex; align-items: center; gap: 0.6rem;"><span style="width: 14px; height: 14px; border-radius: 3px; background: var(--success);"></span><div><div style="font-size: 0.85rem; font-weight: 600;">Completed</div><div style="font-size: 0.78rem; color: var(--text-muted);">42 tasks · 57%</div></div></div>
-                    <div style="display: flex; align-items: center; gap: 0.6rem;"><span style="width: 14px; height: 14px; border-radius: 3px; background: var(--primary);"></span><div><div style="font-size: 0.85rem; font-weight: 600;">In Progress</div><div style="font-size: 0.78rem; color: var(--text-muted);">8 tasks · 11%</div></div></div>
-                    <div style="display: flex; align-items: center; gap: 0.6rem;"><span style="width: 14px; height: 14px; border-radius: 3px; background: var(--warning);"></span><div><div style="font-size: 0.85rem; font-weight: 600;">Pending Review</div><div style="font-size: 0.78rem; color: var(--text-muted);">14 tasks · 19%</div></div></div>
-                    <div style="display: flex; align-items: center; gap: 0.6rem;"><span style="width: 14px; height: 14px; border-radius: 3px; background: #ef4444;"></span><div><div style="font-size: 0.85rem; font-weight: 600;">Cancelled</div><div style="font-size: 0.78rem; color: var(--text-muted);">10 tasks · 13%</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 0.6rem;"><span style="width: 14px; height: 14px; border-radius: 3px; background: var(--success);"></span><div><div style="font-size: 0.85rem; font-weight: 600;">Completed</div><div style="font-size: 0.78rem; color: var(--text-muted);">42 tasks Â· 57%</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 0.6rem;"><span style="width: 14px; height: 14px; border-radius: 3px; background: var(--primary);"></span><div><div style="font-size: 0.85rem; font-weight: 600;">In Progress</div><div style="font-size: 0.78rem; color: var(--text-muted);">8 tasks Â· 11%</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 0.6rem;"><span style="width: 14px; height: 14px; border-radius: 3px; background: var(--warning);"></span><div><div style="font-size: 0.85rem; font-weight: 600;">Pending Review</div><div style="font-size: 0.78rem; color: var(--text-muted);">14 tasks Â· 19%</div></div></div>
+                    <div style="display: flex; align-items: center; gap: 0.6rem;"><span style="width: 14px; height: 14px; border-radius: 3px; background: #ef4444;"></span><div><div style="font-size: 0.85rem; font-weight: 600;">Cancelled</div><div style="font-size: 0.78rem; color: var(--text-muted);">10 tasks Â· 13%</div></div></div>
                   </div>
                 </div>
               </div>
@@ -252,3 +278,4 @@
   <script src="app.js"></script>
 </body>
 </html>
+

@@ -284,6 +284,15 @@ textarea {
   background: var(--primary-light);
 }
 
+/* Fix: Home1 CTA gradient section - secondary & outline button hover contrast */
+section[style*="linear-gradient"] .btn-secondary:hover,
+section[style*="linear-gradient"] .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: var(--primary) !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2) !important;
+}
+
 .btn-sm {
   padding: 0.45rem 0.9rem;
   font-size: 0.85rem;
@@ -342,6 +351,7 @@ textarea {
   list-style: none;
   margin-right: auto;
   padding-left: 1rem;
+  flex-wrap: nowrap;
 }
 
 .nav-item {
@@ -593,6 +603,23 @@ textarea {
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  /* Fix: Services CTA alignment - cards use flex column layout */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fix: Services CTA buttons - push them to the bottom, wrap text, full width */
+#services-main-catalog .feature-card .btn {
+  margin-top: auto;
+  align-self: stretch;
+  width: 100%;
+  white-space: normal;
+  word-break: break-word;
+  text-align: center;
+  line-height: 1.4;
+  padding: 0.6rem 0.75rem;
+  height: auto;
+  min-height: 2.5rem;
 }
 
 .feature-card:hover {
@@ -849,7 +876,7 @@ body {
 /* Dashboard Layout */
 .dashboard-container {
   display: flex;
-  min-height: calc(100vh - 76px);
+  min-height: 100vh;
   background-color: var(--bg-primary);
   align-items: flex-start;
 }
@@ -861,22 +888,87 @@ body {
   padding: 1.5rem 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  transition: var(--transition);
+  /* Removed justify-content: space-between — caused large gap between logo & menu */
+  gap: 0;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   flex-shrink: 0;
   overflow-y: auto;
-  z-index: 100;
+  z-index: 300;
+}
+
+/* Push logout menu to the bottom of the sidebar */
+.dashboard-sidebar > ul:last-of-type {
+  margin-top: auto;
 }
 
 .dashboard-main {
   flex: 1;
-  padding: 2rem;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
   min-width: 0;
   margin-inline-start: 260px;
+}
+
+/* ── Dashboard Mobile Topbar (hamburger) ── */
+.dashboard-mobile-topbar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  background: var(--sidebar-bg);
+  border-bottom: 1px solid var(--sidebar-border);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: var(--shadow-sm);
+}
+
+.dashboard-mobile-topbar .brand-logo {
+  font-size: 1.2rem;
+}
+
+.dash-hamburger-btn {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+
+.dash-hamburger-btn:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Overlay that dims the main content when sidebar is open */
+.dashboard-sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 250;
+  backdrop-filter: blur(2px);
+  transition: opacity 0.3s ease;
+}
+
+.dashboard-sidebar-overlay.active {
+  display: block;
+}
+
+/* Sidebar open state on mobile */
+.dashboard-sidebar.mobile-open {
+  transform: translateX(0) !important;
 }
 
 .sidebar-logo {
@@ -888,6 +980,13 @@ body {
   justify-content: center;
   flex-shrink: 0;
 }
+
+/* Desktop: always hide the in-sidebar close button */
+#user-sidebar-close,
+#admin-sidebar-close {
+  display: none !important;
+}
+
 
 /* Hide Header & Footer on Dashboards */
 body:has(#view-user-dashboard.active) .app-header,
@@ -949,6 +1048,14 @@ body:has(#view-admin-dashboard.active) {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--card-border);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Fix: Dashboard topbar actions - prevent overflow */
+.dashboard-topbar > div:last-child {
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .stats-grid {
@@ -1023,6 +1130,20 @@ body:has(#view-admin-dashboard.active) {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   margin-top: 0.5rem;
+}
+
+/* Fix: Services capability matrix - ensure table columns are equal and text is aligned */
+.data-table th:first-child,
+.data-table td:first-child {
+  width: 35%;
+  font-weight: 600;
+}
+
+.data-table th:not(:first-child),
+.data-table td:not(:first-child) {
+  width: 21.67%;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .data-table {
@@ -1367,6 +1488,16 @@ iframe {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* Fix: 1024px nav bar alignment - ensure header items are properly aligned */
+  .header-container {
+    height: 68px;
+    gap: 0.5rem;
+  }
+
+  .brand-logo {
+    font-size: 1.25rem;
+  }
+
   /* ---- Hamburger at 1024px: hide nav + desktop controls ---- */
   .desktop-only-control {
     display: none !important;
@@ -1382,10 +1513,10 @@ iframe {
 
   .nav-menu {
     position: fixed;
-    top: 76px;
+    top: 68px;
     inset-inline-start: -100%;
     width: 100%;
-    height: calc(100vh - 76px);
+    height: calc(100vh - 68px);
     background: var(--card-bg);
     flex-direction: column;
     padding: 2rem;
@@ -1410,6 +1541,11 @@ iframe {
     opacity: 1 !important;
     visibility: visible !important;
     transform: none !important;
+  }
+
+  /* Fix: dashboard padding at 1024px */
+  .dashboard-main {
+    padding: 1.75rem 1.5rem;
   }
 }
 
@@ -1439,19 +1575,53 @@ iframe {
     flex-direction: column;
   }
 
+  /* Dashboard Mobile: slide-in sidebar drawer */
   .dashboard-sidebar {
-    width: 100%;
-    position: relative;
+    width: 280px;
+    position: fixed;
     top: 0;
-    height: auto;
-    border-inline-end: none;
-    border-bottom: 1px solid var(--card-border);
+    left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    border-inline-end: 1px solid var(--sidebar-border);
+    border-bottom: none;
+    z-index: 300;
+    padding-top: 1rem;
   }
 
-  .dashboard-main {
-    padding: 1.5rem 1rem;
-    margin-inline-start: 0;
+  /* RTL support for slide-in */
+  [dir="rtl"] .dashboard-sidebar {
+    left: auto;
+    right: 0;
+    transform: translateX(100%);
   }
+  [dir="rtl"] .dashboard-sidebar.mobile-open {
+    transform: translateX(0) !important;
+  }
+
+  /* Show mobile topbar */
+  .dashboard-mobile-topbar {
+    display: flex;
+  }
+
+  /* On mobile, allow the in-sidebar close button to show when toggled via JS */
+  #user-sidebar-close,
+  #admin-sidebar-close {
+    display: none !important;
+  }
+  .dashboard-sidebar.mobile-open #user-sidebar-close,
+  .dashboard-sidebar.mobile-open #admin-sidebar-close {
+    display: flex !important;
+  }
+
+  /* Main content goes full width, no left margin */
+  .dashboard-main {
+    margin-inline-start: 0;
+    padding: 1.25rem 1rem;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
 
   .dashboard-topbar {
     flex-direction: column;
@@ -1548,9 +1718,115 @@ iframe {
   .table-responsive table {
     width: 100%;
   }
+
+  /* Fix: Home2 data processing rows — wrap on mobile */
+  .data-processing-row {
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+  }
+
+  .data-processing-row > div:last-child {
+    width: 100%;
+    text-align: start;
+  }
+
+  /* Fix: Home2 visual card overflow */
+  .hero2-visual-card {
+    padding: 1.25rem;
+  }
+
+  .hero2-visual-container {
+    margin-top: 0;
+    padding-bottom: 0;
+  }
+
+  /* Fix: Home2 hero section horizontal overflow */
+  .hero2-section-redesign,
+  .hero2-section-redesign .container {
+    overflow-x: hidden;
+  }
 }
 
 /* --- 360px Breakpoint (Small Mobile Screen Optimization) --- */
+@media (max-width: 480px) {
+  /* Fix: Home1 & Home2 360px content alignment */
+  .hero-section .container,
+  .hero-section-bg .container {
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .hero-content-center {
+    padding: 0 0.5rem;
+  }
+
+  .hero-content-center h1 {
+    font-size: 1.85rem !important;
+    line-height: 1.25;
+    word-break: break-word;
+  }
+
+  .hero-content-center p {
+    font-size: 0.95rem !important;
+  }
+
+  /* Fix: Home2 hero grid alignment at small screens */
+  .hero2-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero2-title {
+    font-size: 1.9rem;
+    line-height: 1.2;
+  }
+
+  .hero2-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .hero2-section-redesign {
+    padding: 4rem 0 3rem 0;
+    background-attachment: scroll;
+  }
+
+  /* Fix: About mobile - image + text overlap */
+  .img-content-split {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .img-content-split img {
+    height: 200px;
+  }
+
+  /* Fix: Contact mobile - grid layout */
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Contact location grid */
+  div[style*="grid-template-columns: repeat(4, 1fr)"] {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Fix: Flex buttons stack on small screens */
+  .flex.gap-2.justify-center,
+  .flex.gap-2.items-center.justify-center,
+  .flex.gap-2.items-center.flex-wrap {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .flex.gap-2.justify-center .btn,
+  .flex.gap-2.items-center.justify-center .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 360px) {
   .container {
     padding: 0 0.75rem;
@@ -1605,6 +1881,10 @@ iframe {
   /* Small Screen Card Adjustments */
   .auth-page-card {
     padding: 1.5rem 0.85rem 1.25rem 0.85rem;
+  }
+
+  .hero2-title {
+    font-size: 1.65rem;
   }
 }
 
@@ -1701,6 +1981,16 @@ iframe {
   flex-direction: column;
   gap: 0.75rem;
   margin-bottom: 2rem;
+}
+
+/* Fix: hero2 section - prevent any child from overflowing horizontally */
+.hero2-section-redesign * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.hero2-section-redesign .container {
+  overflow: hidden;
 }
 
 .hero2-benefit-item {
@@ -1837,10 +2127,10 @@ iframe {
   color: #e2e8f0 !important;
 }
 
+/* Fix: Home2 hero floating badge - prevent overlap with visual card */
 .hero2-floating-badge {
-  position: absolute;
-  bottom: -20px;
-  left: -20px;
+  position: static;
+  margin-top: 1rem;
   background: rgba(15, 23, 42, 0.95) !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   padding: 0.85rem 1.25rem;
@@ -1850,11 +2140,7 @@ iframe {
   align-items: center;
   gap: 0.75rem;
   color: #ffffff !important;
-}
-
-[dir="rtl"] .hero2-floating-badge {
-  left: auto;
-  right: -20px;
+  width: fit-content;
 }
 
 /* Dashboard Client Profile Card */
@@ -1988,14 +2274,47 @@ iframe {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
-  
+
   .hero2-title {
     font-size: 2.5rem;
   }
 
-  .hero2-floating-badge {
-    position: static;
-    margin-top: 1rem;
+  /* Fix: hero2 visual card - ensure it doesn't overflow */
+  .hero2-visual-container {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .hero2-visual-card {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .data-processing-row {
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+
+  .hero2-badge-pill {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  /* Fix: Home2 interactive simulation center alignment at tablet */
+  .hero2-grid > div:first-child {
+    text-align: center;
+  }
+
+  .hero2-badge-pill {
+    margin: 0 auto 1.25rem auto;
+  }
+
+  .hero2-benefits-list {
+    text-align: left;
+  }
+
+  .hero2-benefit-item {
+    justify-content: flex-start;
   }
 }
 
@@ -2014,6 +2333,35 @@ iframe {
 /* ==========================================================================
    Company Evolution Timeline (About Page)
    ========================================================================== */
+
+/* Fix: About page - story image + text grid responsive fix */
+.about-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .about-story-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .about-story-grid > div:first-child img {
+    height: 220px !important;
+  }
+}
+
+/* Fix: Home2 simulation section - center align heading and description */
+.sim-content-center {
+  text-align: center;
+}
+
+.sim-content-center .form-group {
+  text-align: left;
+}
 
 .evolution-timeline-section {
   position: relative;
